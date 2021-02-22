@@ -9,8 +9,9 @@ namespace kuujoo.Pixel.Packer
 
     public class SpritePacker
     {
-        class Packet : IComparable<Packet>
+        class Packet
         {
+            public int PacketId {get; set;}
             public Node Node { get; set; }
             public string Name { get; set; }
             public string Tag { get; set; }
@@ -22,13 +23,6 @@ namespace kuujoo.Pixel.Packer
             public int Width { get; set; }
             public int Height { get; set; }
             public int Duration { get; set; }
-            public int CompareTo(Packet other)
-            {
-                var r = (Math.Max(Width, Height)).CompareTo(Math.Max(Width, Height));
-                if (r != 0) return r;
-
-                return (other.Width * other.Height).CompareTo(Width * Height);
-            }
         }
         class Node
         {
@@ -70,7 +64,8 @@ namespace kuujoo.Pixel.Packer
                 Name = name,
                 Width = width,
                 Height = height,
-                Pixels = pixels
+                Pixels = pixels,
+                PacketId = _packets.Count
            };
             _packets.Add(packet);
         }
@@ -84,6 +79,7 @@ namespace kuujoo.Pixel.Packer
                 Pixels = pixels,
                 Tag = tag,
                 Frame = frame,
+                PacketId = _packets.Count
             };
             _packets.Add(packet);
         }
@@ -97,7 +93,8 @@ namespace kuujoo.Pixel.Packer
                 Pixels = pixels,
                 Slices = slices,
                 Frame = frame,
-                Duration = duration
+                Duration = duration,
+                PacketId = _packets.Count
             };
             _packets.Add(packet);
         }
@@ -112,7 +109,8 @@ namespace kuujoo.Pixel.Packer
                 Tag = tag,
                 Slices = slices,
                 Frame = frame,
-                Duration = duration
+                Duration = duration,
+                PacketId = _packets.Count
             };
             _packets.Add(packet);
         }
@@ -133,6 +131,7 @@ namespace kuujoo.Pixel.Packer
                 Width = width,
                 Height = height,
                 Pixels = pixls,
+                PacketId = _packets.Count
             };
             _packets.Add(packet);
         }
@@ -229,6 +228,7 @@ namespace kuujoo.Pixel.Packer
             while (_packets.Count > 0)
             {
                 int packets = DoPack(ref _packets);
+                _packets.Sort((Packet p0, Packet p1) => { return p0.PacketId.CompareTo(p1.PacketId); });
                 var atlas = GetAtlas();
                 for(var i = 0; i < packets; i++)
                 {
@@ -248,7 +248,13 @@ namespace kuujoo.Pixel.Packer
         }
         int DoPack(ref List<Packet> packets)
         {
-            packets.Sort();
+            packets.Sort((Packet p0, Packet p1) => {
+                var r = (Math.Max(p0.Width, p0.Height)).CompareTo(Math.Max(p1.Width, p1.Height));
+                if (r != 0) return r;
+
+                return (p0.Width * p0.Height).CompareTo(p1.Width * p1.Height);
+            });
+
             Node root = new Node()
             {
                 Width = _atlasWidth,
