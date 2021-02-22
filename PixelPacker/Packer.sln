@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packer", "Packer\Packer.csproj", "{39A2C59E-9922-4E03-A03B-690F4370F626}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackerLib", "PackerLib\PackerLib.csproj", "{F1F84696-755D-4E0B-9869-EFD8E0AF551C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39A2C59E-9922-4E03-A03B-690F4370F626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A2C59E-9922-4E03-A03B-690F4370F626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A2C59E-9922-4E03-A03B-690F4370F626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39A2C59E-9922-4E03-A03B-690F4370F626}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1F84696-755D-4E0B-9869-EFD8E0AF551C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F84696-755D-4E0B-9869-EFD8E0AF551C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F84696-755D-4E0B-9869-EFD8E0AF551C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F84696-755D-4E0B-9869-EFD8E0AF551C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C26944F2-1CED-4C0D-81B8-C09A92324D7F}
+	EndGlobalSection
+EndGlobal
