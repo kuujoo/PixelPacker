@@ -42,6 +42,10 @@ namespace kuujoo.Pixel.Packer
                 a
             );
         }
+        public Color ToPreMultiplied()
+        {
+            return Color.FromNonPremultiplied(R, G, B, A);
+        }
     }
 
     public struct Point
