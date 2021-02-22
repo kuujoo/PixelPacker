@@ -1,7 +1,7 @@
 ﻿    using System;
     using System.Collections.Generic;
 
-namespace kuujoo.Pixel
+namespace kuujoo.Pixel.Packer
 {
 
     public class BinaryPackerNode

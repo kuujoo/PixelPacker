@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace kuujoo.Pixel
+namespace kuujoo.Pixel.Packer
 {
     class Program
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace kuujoo.Pixel
+namespace kuujoo.Pixel.Packer
 {
 
     public class SpritePacker
@@ -21,6 +21,7 @@ namespace kuujoo.Pixel
             public int Y => Node.Y;
             public int Width { get; set; }
             public int Height { get; set; }
+            public int Duration { get; set; }
             public int CompareTo(Packet other)
             {
                 var r = (Math.Max(Width, Height)).CompareTo(Math.Max(Width, Height));
@@ -86,7 +87,7 @@ namespace kuujoo.Pixel
             };
             _packets.Add(packet);
         }
-        void Add(string name, int width, int height, Color[] pixels, Slice[] slices)
+        void Add(string name, int frame, int duration, int width, int height, Color[] pixels, Slice[] slices)
         {
             var packet = new Packet()
             {
@@ -94,11 +95,13 @@ namespace kuujoo.Pixel
                 Width = width,
                 Height = height,
                 Pixels = pixels,
-                Slices = slices
+                Slices = slices,
+                Frame = frame,
+                Duration = duration
             };
             _packets.Add(packet);
         }
-        void Add(string name, string tag, int frame, int width, int height, Color[] pixels, Slice[] slices)
+        void Add(string name, string tag, int frame, int duration, int width, int height, Color[] pixels, Slice[] slices)
         {
             var packet = new Packet()
             {
@@ -107,12 +110,13 @@ namespace kuujoo.Pixel
                 Height = height,
                 Pixels = pixels,
                 Tag = tag,
+                Slices = slices,
                 Frame = frame,
-                Slices = slices
+                Duration = duration
             };
             _packets.Add(packet);
         }
-        public void Add(string name, int width, int height, byte[] pixels)
+        public void Add(string name,  int width, int height, byte[] pixels)
         {
             var pixls = new Color[width * height];
             for(var i = 0; i < width * height; i++)
@@ -128,7 +132,7 @@ namespace kuujoo.Pixel
                 Name = name,
                 Width = width,
                 Height = height,
-                Pixels = pixls
+                Pixels = pixls,
             };
             _packets.Add(packet);
         }
@@ -189,11 +193,11 @@ namespace kuujoo.Pixel
                 {
                     if (slices.Length > 0)
                     {
-                        Add(fileName, tag.Name, f, ase.Width, ase.Height, frame.Pixels, slices);
+                        Add(fileName, tag.Name, f, frame.Duration, ase.Width, ase.Height, frame.Pixels, slices);
                     }
                     else
                     {
-                        Add(fileName, tag.Name, f, ase.Width, ase.Height, frame.Pixels);
+                        Add(fileName, tag.Name, f, frame.Duration, ase.Width, ase.Height, frame.Pixels, null);
                     }
                  
                 }
@@ -201,11 +205,11 @@ namespace kuujoo.Pixel
                 {
                     if (slices.Length > 0)
                     {
-                        Add(fileName, ase.Width, ase.Height, frame.Pixels, slices);
+                        Add(fileName, f, frame.Duration, ase.Width, ase.Height, frame.Pixels, slices);
                     }
                     else
                     {
-                        Add(fileName, ase.Width, ase.Height, frame.Pixels);
+                        Add(fileName, f, frame.Duration, ase.Width, ase.Height, frame.Pixels, null);
                     }
                 }
             }

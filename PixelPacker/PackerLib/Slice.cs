@@ -1,4 +1,4 @@
-﻿namespace kuujoo.Pixel
+﻿namespace kuujoo.Pixel.Packer
 {
     public class Slice
     {

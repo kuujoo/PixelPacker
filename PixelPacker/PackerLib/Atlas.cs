@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text.Json;
 
-namespace kuujoo.Pixel
+namespace kuujoo.Pixel.Packer
 {
     public class Atlas
     {
@@ -18,6 +18,7 @@ namespace kuujoo.Pixel
             public int Y { get; set; }
             public int Width { get; set; }
             public int Height { get; set; }
+            public int Duration { get; set; }
             public Slice[] Slices { get; set; }
 
             public int CompareTo(SubImage obj)

@@ -14,7 +14,7 @@ using System.Text;
 // Only implemented the stuff I needed / wanted, other stuff is ignored
 
 
-namespace kuujoo.Pixel
+namespace kuujoo.Pixel.Packer
 {
     public struct Color
     {
