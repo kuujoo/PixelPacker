@@ -48,7 +48,7 @@ namespace kuujoo.Pixel.Packer
             if (!File.Exists(file)) return;
 
             var ext = Path.GetExtension(file);
-            if(ext == ".ase" || ext == ".asesprite")
+            if(ext == ".ase" || ext == ".aseprite")
             {
                 AddAseFile(file);
             }
