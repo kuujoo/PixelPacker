@@ -40,3 +40,8 @@ var atlas = packer.Pack();
 // Save first atlas to file (generates .png and .json that descripes subimages+slices)
 atlas[0].Save("test");	
 ```
+
+#### Special thanks
+
+* [AseSprite Parser by Noel Berry](https://gist.github.com/NoelFB/778d190e5d17f1b86ebf39325346fcc5) - Asesprite loader
+* [StbSharp] (https://github.com/StbSharp/StbImageSharp) - image file loaders / writers
