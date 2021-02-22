@@ -43,5 +43,5 @@ atlas[0].Save("test");
 
 #### Special thanks
 
-* [AseSprite Parser by Noel Berry](https://gist.github.com/NoelFB/778d190e5d17f1b86ebf39325346fcc5) - Asesprite loader
+* [Aseprite Parser by Noel Berry](https://gist.github.com/NoelFB/778d190e5d17f1b86ebf39325346fcc5) - Asesprite loader
 * [StbSharp](https://github.com/StbSharp/StbImageSharp) - image file loaders / writers
