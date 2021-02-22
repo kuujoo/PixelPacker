@@ -233,7 +233,7 @@ namespace kuujoo.Pixel.Packer
                 for(var i = 0; i < packets; i++)
                 {
                     var packet = _packets[i];
-                    atlas.AddPixels(packet.Name, packet.Tag, packet.Frame, packet.X, packet.Y, packet.Width, packet.Height, packet.Pixels, packet.Slices);
+                    atlas.AddPixels(packet.Name, packet.Tag, packet.Frame, packet.Duration, packet.X, packet.Y, packet.Width, packet.Height, packet.Pixels, packet.Slices);
                 }
                 _packets.RemoveRange(0, packets);
             }

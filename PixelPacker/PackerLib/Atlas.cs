@@ -67,7 +67,7 @@ namespace kuujoo.Pixel.Packer
             }
             images.Sort();
         }
-        public void AddPixels(string name, string tag, int frame, int x, int y, int width, int height, Color[] pixels, Slice[] slices)
+        public void AddPixels(string name, string tag, int frame, int duration, int x, int y, int width, int height, Color[] pixels, Slice[] slices)
         {
             for(int i = 0; i < width; i++)
             {
@@ -88,7 +88,8 @@ namespace kuujoo.Pixel.Packer
                 Y = y,
                 Width = width,
                 Height = height,
-                Slices = slices
+                Slices = slices,
+                Duration = duration
             });
         }
         public void Save(string file)
